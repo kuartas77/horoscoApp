@@ -1,9 +1,9 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
     id ("androidx.navigation.safeargs.kotlin")
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -40,6 +40,9 @@ android {
         viewBinding = true
         buildConfig = true
     }
+    kotlin{
+        jvmToolchain(8)
+    }
 }
 
 dependencies {
@@ -52,7 +55,7 @@ dependencies {
 
     //DaggerHilt
     implementation("com.google.dagger:hilt-android:2.48")
-    kapt("com.google.dagger:hilt-compiler:2.48")
+    ksp("com.google.dagger:hilt-compiler:2.48")
 
     //Retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
@@ -83,5 +86,5 @@ dependencies {
     androidTestImplementation ("androidx.test.espresso:espresso-intents:3.5.1")
     androidTestImplementation ("com.google.dagger:hilt-android-testing:2.48")
     androidTestImplementation ("androidx.fragment:fragment-testing:1.6.1")
-    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.48")
+    kspAndroidTest("com.google.dagger:hilt-android-compiler:2.48")
 }
