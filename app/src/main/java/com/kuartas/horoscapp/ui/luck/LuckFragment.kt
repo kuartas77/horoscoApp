@@ -5,10 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.kuartas.horoscapp.R
 import com.kuartas.horoscapp.databinding.FragmentLuckBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LuckFragment : Fragment() {
+
+    private val luckViewModel by viewModels<LuckViewModel>()
 
     private var _binding: FragmentLuckBinding? = null
     private val binding get() = _binding!!
