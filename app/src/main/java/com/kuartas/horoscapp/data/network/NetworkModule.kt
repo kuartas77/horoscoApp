@@ -1,5 +1,6 @@
 package com.kuartas.horoscapp.data.network
 
+import com.kuartas.horoscapp.BuildConfig.BASE_URL
 import com.kuartas.horoscapp.data.core.interceptors.AuthInterceptor
 import com.kuartas.horoscapp.data.repository.HoroscopeRepositoryImpl
 import com.kuartas.horoscapp.domain.repository.HoroscopeRepository
@@ -21,7 +22,7 @@ object NetworkModule {
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://newastro.vercel.app")
+            .baseUrl(BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
